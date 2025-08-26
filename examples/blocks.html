@@ -29,16 +29,41 @@
   <body>
     <div id="map"></div>
     <script>
+      const protocol = new pmtiles.Protocol();
+
+      maplibregl.addProtocol("pmtiles", protocol.tile);
+
       const map = new maplibregl.Map({
         container: "map",
-        style: "https://demotiles.maplibre.org/style.json",
+        style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
         zoom: 2,
         center: [0, 0],
       });
 
-      map.on("style.load", () => {
+      map.on("style.load", (a, b, c) => {
+        console.log("style loaded", a, b, c);
+
         map.setProjection({
           type: "globe",
+        });
+
+        map.addSource("blocks", {
+          type: "vector",
+          url: "pmtiles://https://mastermaps.github.io/norwegian-petroleum-mapping/examples/data/block.pmtiles",
+          attribution: "", // Add attribution if needed
+          // maxzoom: 12,
+        });
+
+        map.addLayer({
+          id: "blocks-layer",
+          type: "fill",
+          source: "blocks",
+          "source-layer": "block",
+          paint: {
+            "fill-color": "#888888",
+            "fill-opacity": 0.5,
+            "fill-outline-color": "#000000",
+          },
         });
       });
     </script>
