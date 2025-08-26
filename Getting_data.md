@@ -15,13 +15,15 @@ ogr2ogr data/block.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_
 
 ogr2ogr data/sbm_block.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb sbm_block -t_srs EPSG:4326
 
-ogr2ogr data/areastatus.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb areastatus -t_srs EPSG:4326
+ogr2ogr data/area_status.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb areastatus -t_srs EPSG:4326
 
 ogr2ogr data/sub_area.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb sub_area -t_srs EPSG:4326
 
+ogr2ogr data/sea_boundary.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb sjogrenser_samling -t_srs EPSG:4326
+
 brew install tippecanoe
 
-tippecanoe -o examples/data/norway-petroleum.pmtiles data/block.geojson data/sbm_block.geojson data/areastatus.geojson data/sub_area.geojson -z 10
+tippecanoe -o examples/data/norway-petroleum.pmtiles data/block.geojson data/sbm_block.geojson data/area_status.geojson data/sub_area.geojson data/sea_boundary.geojson -z 10
 
 npm install --global serve
 

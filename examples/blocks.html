@@ -47,16 +47,16 @@
           type: "globe",
         });
 
-        map.addSource("blocks", {
+        map.addSource("norway-petroleum", {
           type: "vector",
-          url: "pmtiles://https://mastermaps.github.io/norwegian-petroleum-mapping/examples/data/block.pmtiles",
+          url: "pmtiles://https://mastermaps.github.io/norwegian-petroleum-mapping/examples/data/norway-petroleum.pmtiles",
           attribution: "Norwegian Offshore Directorate",
         });
 
         map.addLayer({
           id: "blocks-layer",
           type: "fill",
-          source: "blocks",
+          source: "norway-petroleum",
           "source-layer": "block",
           paint: {
             "fill-color": "#888888",
