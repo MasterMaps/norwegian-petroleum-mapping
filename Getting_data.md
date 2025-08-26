@@ -4,3 +4,24 @@ https://www.sodir.no/en/facts/data-and-analysis/open-data/
 
 To download all datasets use the FGBD format under "Datasets Factmaps".
 Unzip the file. You can open the .gdb folder in QGIS to inspect the data.
+
+brew install gdal
+
+https://gdal.org/en/stable/drivers/vector/openfilegdb.html#vector-openfilegdb
+
+ogrinfo data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb
+
+ogr2ogr data/block.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb block -t_srs EPSG:4326
+
+brew install tippecanoe
+
+tippecanoe -o examples/data/block.pmtiles data/block.geojson -z 10
+
+npm install --global serve
+
+cd examples
+
+serve
+
+https://jupyterbook.org/en/stable/publish/gh-pages.html
+https://github.com/MasterMaps/norwegian-petroleum-mapping/settings/pages

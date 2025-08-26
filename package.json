@@ -1,0 +1,11 @@
+{
+  "name": "norwegian-petroleum-mapping",
+  "version": "0.0.1",
+  "description": "Tools and workflows to map Norwegian petroleum activities",
+  "license": "GNU General Public License v3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MasterMaps/norwegian-petroleum-mapping.git"
+  },
+  "homepage": "https://mastermaps.github.io/norwegian-petroleum-mapping/"
+}
