@@ -36,13 +36,13 @@
       const map = new maplibregl.Map({
         container: "map",
         style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
-        zoom: 2,
-        center: [0, 0],
+        center: [14, 65],
+        zoom: 4,
+        minZoom: 0,
+        maxZoom: 13,
       });
 
-      map.on("style.load", (a, b, c) => {
-        console.log("style loaded", a, b, c);
-
+      map.on("style.load", () => {
         map.setProjection({
           type: "globe",
         });
@@ -50,8 +50,7 @@
         map.addSource("blocks", {
           type: "vector",
           url: "pmtiles://https://mastermaps.github.io/norwegian-petroleum-mapping/examples/data/block.pmtiles",
-          attribution: "", // Add attribution if needed
-          // maxzoom: 12,
+          attribution: "Norwegian Offshore Directorate",
         });
 
         map.addLayer({

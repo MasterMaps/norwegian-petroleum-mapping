@@ -13,9 +13,15 @@ ogrinfo data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb
 
 ogr2ogr data/block.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb block -t_srs EPSG:4326
 
+ogr2ogr data/sbm_block.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb sbm_block -t_srs EPSG:4326
+
+ogr2ogr data/areastatus.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb areastatus -t_srs EPSG:4326
+
+ogr2ogr data/sub_area.geojson data/SODIR_FactMaps_data_v3_0/SODIR_FactMaps_data_v3_0.gdb sub_area -t_srs EPSG:4326
+
 brew install tippecanoe
 
-tippecanoe -o examples/data/block.pmtiles data/block.geojson -z 10
+tippecanoe -o examples/data/norway-petroleum.pmtiles data/block.geojson data/sbm_block.geojson data/areastatus.geojson data/sub_area.geojson -z 10
 
 npm install --global serve
 
